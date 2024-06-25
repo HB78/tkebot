@@ -5,7 +5,6 @@ import { getServerSession } from "next-auth";
 import { NextResponse } from "next/server";
 import OpenAI from "openai";
 import { authOptions } from "../auth/[...nextauth]/route";
-export const dynamic = "force-dynamic";
 
 // Create an OpenAI API client (that's edge friendly!)
 // const config = new Configuration({
