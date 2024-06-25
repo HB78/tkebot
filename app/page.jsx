@@ -1,5 +1,6 @@
 import BackgroundPlayerVideo from "@/components/backgroundVideo/BackgroundPlayerVideo";
 import Link from "next/link";
+export const dynamic = "force-dynamic";
 
 /* eslint-disable no-unused-vars */
 const Home = () => {
