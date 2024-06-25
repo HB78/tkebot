@@ -2,10 +2,10 @@
 import { Loader2 } from "lucide-react";
 
 const MessageList = ({ messages, isLoading }) => {
-  // const isUserColor =
-  //   "rounded-xl text-sm shadow-md ring-1 ring-gray-900/10 p-3 max-w-[80%] bg-blue-600 text-white";
-  // const isBotColor =
-  //   "rounded-xl text-sm shadow-md ring-1 ring-gray-900/10 p-3 max-w-[80%] bg-gray-800 text-white";
+  const isUserColor =
+    "rounded-xl text-sm shadow-md ring-1 ring-gray-900/10 p-3 max-w-[80%] bg-blue-600 text-white";
+  const isBotColor =
+    "rounded-xl text-sm shadow-md ring-1 ring-gray-900/10 p-3 max-w-[80%] bg-gray-800 text-white";
 
   if (isLoading) {
     return (
@@ -18,11 +18,13 @@ const MessageList = ({ messages, isLoading }) => {
   if (!messages || !Array.isArray(messages))
     return <>ceci n&apos;est pas un tableau</>;
 
-  console.log("PUTAIIIIIIIIIN", messages);
+  if (!messages.roles) return <Loader2 className="w-6 h-6 animate-spin" />;
+  console.log("messages:PUTAIIIIIIIIN", messages);
 
   return (
     <div className="flex flex-col gap-3 px-4">
       {messages.map((message) => {
+        console.log("message:", message);
         return (
           <div
             key={message.id}
