@@ -14,45 +14,38 @@ const MessageList = ({ messages, isLoading }) => {
       </div>
     );
   }
-  if (!messages)
-    return (
-      <div>
-        <Loader2 className="w-6 h-6 animate-spin" />
-      </div>
-    );
+  if (!messages) return <></>;
   if (!messages || !Array.isArray(messages))
     return <>ceci n&apos;est pas un tableau</>;
+
+  console.log("PUTAIIIIIIIIIN", messages);
 
   return (
     <div className="flex flex-col gap-3 px-4">
       {messages.map((message) => {
-        if (message.role === "USER") {
-          return (
-            <div key={message.id} className="flex justify-end pl-10">
-              <div className="rounded-xl text-sm shadow-md ring-1 ring-gray-900/10 p-3 max-w-[80%] bg-blue-600 text-white">
-                <p>{message.content}</p>
+        return (
+          <div
+            key={message.id}
+            className={
+              message.role == "USER"
+                ? "flex justify-end pl-10"
+                : "flex justify-start pr-10"
+            }
+          >
+            <div
+              className={
+                message.role == "USER"
+                  ? "rounded-xl text-sm shadow-md ring-1 ring-gray-900/10 p-3 max-w-[80%] bg-blue-600 text-white"
+                  : "rounded-xl text-sm shadow-md ring-1 ring-gray-900/10 p-3 max-w-[80%] bg-gray-800 text-white"
+              }
+            >
+              <p>{message.content}</p>
+              <div className="text-xs text-blue-500 mt-1">
+                {message.role == "SYSTEM" ? "tkebot" : null}
               </div>
             </div>
-          );
-        } else if (message.role === "SYSTEM") {
-          return (
-            <div key={message.id} className="flex justify-start pr-10">
-              <div className="rounded-xl text-sm shadow-md ring-1 ring-gray-900/10 p-3 max-w-[80%] bg-gray-800 text-white">
-                <p>{message.content}</p>
-                <div className="text-xs text-blue-500 mt-1">tkebot</div>
-              </div>
-            </div>
-          );
-        } else {
-          // Si jamais un autre rôle est utilisé, on peut gérer le cas ici
-          return (
-            <div key={message.id} className="flex justify-start pr-10">
-              <div className="rounded-xl text-sm shadow-md ring-1 ring-gray-900/10 p-3 max-w-[80%] bg-gray-200 text-black">
-                <p>{message.content}</p>
-              </div>
-            </div>
-          );
-        }
+          </div>
+        );
       })}
     </div>
   );
