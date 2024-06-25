@@ -3,20 +3,15 @@ import { fetchMessages } from "@/fetches/fetches";
 import { useQuery } from "@tanstack/react-query";
 import { useChat } from "ai/react";
 import { Send } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import MessageList from "./MessageList";
 import { Button } from "./ui/button";
 import { Textarea } from "./ui/textarea";
 
 const ChatComponent = ({ chatId }) => {
-  const [localMessages, setLocalMessages] = useState([]);
-
   const { data, isPending } = useQuery({
     queryKey: ["messagesOfChat", chatId],
     queryFn: () => fetchMessages(chatId),
-    onSuccess: (data) => {
-      setLocalMessages(data);
-    },
   });
 
   const { input, handleInputChange, handleSubmit, messages } = useChat({
@@ -26,10 +21,6 @@ const ChatComponent = ({ chatId }) => {
     },
     initialMessages: data || [],
   });
-
-  useEffect(() => {
-    setLocalMessages(data);
-  }, [data]);
 
   useEffect(() => {
     console.log("messages:", messages);
@@ -62,7 +53,7 @@ const ChatComponent = ({ chatId }) => {
       </div>
 
       {/* message list */}
-      <MessageList messages={localMessages} isLoading={isPending} />
+      <MessageList messages={messages} isLoading={isPending} />
 
       <form
         onSubmit={handleSubmit}
