@@ -1,0 +1,104 @@
+login url
+"https://res.cloudinary.com/di1r1dipb/video/upload/v1708371721/login_zcxe3a.mp4"
+
+tke url
+https://res.cloudinary.com/di1r1dipb/video/upload/v1708371649/tke_tqsqzs.mp4
+
+signup url
+https://res.cloudinary.com/di1r1dipb/video/upload/v1708372523/signup_rdovud.mp4
+
+//////////////////une fois le projet lancer, ce que l'on doit faire qd on veut update le model ///////
+npx prisma migrate dev --name nom_de_la_migration (comme avec github)
+
+npx prisma generate si je modifie autre chose que le model
+
+npx prisma migrate deploy pour appliquer les modifs
+
+voici la config aws, j'avoue j'ai rien compris
+{
+    "version": "2012-10-17",
+    "statement": [
+        {
+            "sid": "PublicReadGetObject",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3.GetObject",
+            "Resource": "arn:aws:s3:::chatpdf-tke/*"
+        }
+        ]
+}
+
+c'est dans le menu Modifier la stratégie de compartiment puis Stratégie de compartiment
+
+voici en bas le code que l'on va utiliser plus tard pour sécuriser le bucket s3 cad la bdd aws
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowAccessToS3Bucket",
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject",
+                "s3:PutObject"
+            ],
+            "Resource": "arn:aws:s3:::votre-bucket/*"
+        }
+    ]
+}
+
+j'ai aussi configurer la politique CORS mais la vraie config sera celle du bas car j'attends d'avoir un nom de domaine
+[
+    {
+        "AllowedHeaders": ["*"],
+        "AllowedMethods": ["GET", "POST"],
+        "AllowedOrigins": ["https://votre-domaine.com"],
+        "ExposeHeaders": []
+    }
+]
+
+//la j'ai mis sa pour faire un GetObject et un PutObject
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowPutObject",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3:PutObject",
+            "Resource": "arn:aws:s3:::chatpdf-tke/*"
+        },
+        {
+            "Sid": "AllowGetObject",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::chatpdf-tke/*"
+        }
+    ]
+}
+
+//si pdfviewer ne marche pas je remet ce code et j'dapate la page chat
+"use client";
+import { useEffect, useState } from "react";
+
+const PDFViewer = ({ pdfUrl }) => {
+  const [client, setClient] = useState(false);
+  const [url, setUrl] = useState(pdfUrl);
+
+  useEffect(() => {
+    // Mise à jour l'URL dans l'état lorsque l'URL dynamique change
+    setUrl(pdfUrl);
+    // Mise à jour l'état client à true
+    setClient(true);
+  }, [pdfUrl]);
+
+  console.log("pdf_url:in viwer components", url);
+  return (
+    <iframe
+      src={`https://docs.google.com/gview?url=${process.env.NEXT_PUBLIC_PDFIA_API_URL}/${url}.pdf&embedded=true`}
+      className="w-full h-full scrollbar-hide "
+    ></iframe>
+  );
+};
+
+export default PDFViewer;
