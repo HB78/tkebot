@@ -9,9 +9,15 @@ import { Button } from "./ui/button";
 import { Textarea } from "./ui/textarea";
 
 const ChatComponent = ({ chatId }) => {
+  const [localMessages, setLocalMessages] = useState([]);
+
   const { data, isPending } = useQuery({
     queryKey: ["messagesOfChat", chatId],
     queryFn: () => fetchMessages(chatId),
+    onSuccess: (data) => {
+      console.log("data:", data);
+      setLocalMessages(data);
+    },
   });
 
   const { input, handleInputChange, handleSubmit, messages } = useChat({
@@ -22,9 +28,10 @@ const ChatComponent = ({ chatId }) => {
     initialMessages: data || [],
   });
 
-  console.log("data:ZUUUT", data);
-  let datatest = data;
-  console.log("datatest:", datatest);
+  useEffect(() => {
+    console.log("localMessages:", localMessages);
+    setLocalMessages(data);
+  }, [data]);
 
   useEffect(() => {
     console.log("messages:", messages);
