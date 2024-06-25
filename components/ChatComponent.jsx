@@ -3,7 +3,7 @@ import { fetchMessages } from "@/fetches/fetches";
 import { useQuery } from "@tanstack/react-query";
 import { useChat } from "ai/react";
 import { Send } from "lucide-react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import MessageList from "./MessageList";
 import { Button } from "./ui/button";
 import { Textarea } from "./ui/textarea";
@@ -22,6 +22,8 @@ const ChatComponent = ({ chatId }) => {
     initialMessages: data || [],
   });
 
+  const [role, setRole] = useState("USER");
+
   useEffect(() => {
     console.log("messages:", messages);
     const messageContainer = document.getElementById("message-container");
@@ -30,6 +32,7 @@ const ChatComponent = ({ chatId }) => {
         top: messageContainer.scrollHeight,
         behavior: "smooth",
       });
+      setRole(messages.role);
     }
   }, [messages]);
 
@@ -53,11 +56,7 @@ const ChatComponent = ({ chatId }) => {
       </div>
 
       {/* message list */}
-      <MessageList
-        messages={messages}
-        isLoading={isPending}
-        role={messages.role}
-      />
+      <MessageList messages={messages} isLoading={isPending} role={role} />
 
       <form
         onSubmit={handleSubmit}
