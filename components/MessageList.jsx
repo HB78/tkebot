@@ -17,7 +17,7 @@ const MessageList = ({ messages, isLoading }) => {
   if (!messages || !Array.isArray(messages))
     return <>ceci n&apos;est pas un tableau</>;
 
-  if (!messages.roles) return <Loader2 className="w-6 h-6 animate-spin" />;
+  if (!messages.role) return <Loader2 className="w-6 h-6 animate-spin" />;
 
   return (
     <div className="flex flex-col gap-3 px-4">
