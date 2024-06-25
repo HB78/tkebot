@@ -24,7 +24,6 @@ const MessageList = ({ messages, isLoading }) => {
   return (
     <div className="flex flex-col gap-3 px-4">
       {messages.map((message) => {
-        console.log("message:MAP", message);
         return (
           <div
             key={message.id}
