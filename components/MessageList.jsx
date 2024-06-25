@@ -1,7 +1,7 @@
 "use client";
 import { Loader2 } from "lucide-react";
 
-const MessageList = ({ messages, isLoading }) => {
+const MessageList = ({ messages, isLoading, role }) => {
   const isUserPosition = "flex justify-end pl-10";
   const isUserColor =
     "rounded-xl text-sm shadow-md ring-1 ring-gray-900/10 p-3 max-w-[80%] bg-blue-600 text-white";
@@ -26,15 +26,13 @@ const MessageList = ({ messages, isLoading }) => {
           <div
             key={message.id}
             className={
-              message.role === "USER"
-                ? isUserPosition
-                : "flex justify-start pr-10"
+              role === "USER" ? isUserPosition : "flex justify-start pr-10"
             }
           >
-            <div className={message.role === "USER" ? isUserColor : isBotColor}>
+            <div className={role === "USER" ? isUserColor : isBotColor}>
               <p>{message.content}</p>
               <div className="text-xs text-blue-500 mt-1">
-                {message.role === "SYSTEM" ? "tkebot" : null}
+                {role === "SYSTEM" ? "tkebot" : null}
               </div>
             </div>
           </div>
