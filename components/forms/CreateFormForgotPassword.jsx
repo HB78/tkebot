@@ -22,7 +22,7 @@ const CreateFormForgotPassword = () => {
   });
 
   const onSubmit = async (data) => {
-    const res = await fetch(`http://localhost:3000/api/forgotpassword`, {
+    const res = await fetch(`https://tkebot.vercel.app/api/forgotpassword`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

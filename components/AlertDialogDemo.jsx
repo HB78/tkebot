@@ -16,7 +16,7 @@ export function AlertDialogDemo() {
   //function to delete account
   const deleteProfil = async () => {
     // Add logic here to look up the user from the credentials supplied
-    const res = await fetch("http://localhost:3000/api/deleteUser", {
+    const res = await fetch("https://tkebot.vercel.app/api/deleteUser", {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

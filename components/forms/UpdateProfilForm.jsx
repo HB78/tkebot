@@ -35,7 +35,7 @@ export default function UpdateProfilForm() {
   //on créer la fonction de soumission du formulaire qui va mettre a jour le profil
   const updateProfil = async (data) => {
     // Add logic here to look up the user from the credentials supplied
-    const res = await fetch("http://localhost:3000/api/updateUserData", {
+    const res = await fetch("https://tkebot.vercel.app/api/updateUserData", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

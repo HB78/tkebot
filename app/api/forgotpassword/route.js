@@ -47,7 +47,7 @@ export const POST = async (req) => {
     { expiresIn: "10m" }
   );
 
-  const link = `http://localhost:3000/reset-password/${findUserIfExist.id}/${token}`;
+  const link = `https://tkebot.vercel.app/reset-password/${findUserIfExist.id}/${token}`;
 
   const htmlContent = `
 <!DOCTYPE html>

@@ -6,7 +6,7 @@ export async function createChat(data) {
     };
     console.log("pdfData:FROMF ETCHES", pdfData);
 
-    const response = await fetch("http://localhost:3000/api/create-chat", {
+    const response = await fetch("https://tkebot.vercel.app/api/create-chat", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -38,7 +38,7 @@ export async function createChat(data) {
 
 export const fetchMessages = async (chatId) => {
   try {
-    const response = await fetch("http://localhost:3000/api/getMessages", {
+    const response = await fetch("https://tkebot.vercel.app/api/getMessages", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
