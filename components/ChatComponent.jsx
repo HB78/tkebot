@@ -64,7 +64,7 @@ const ChatComponent = ({ chatId }) => {
       </div>
 
       {/* message list */}
-      <MessageList messages={messages} isLoading={isPending} />
+      <MessageList messages={localMessages} isLoading={isPending} />
 
       <form
         onSubmit={handleSubmit}
