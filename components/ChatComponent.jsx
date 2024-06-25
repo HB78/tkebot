@@ -3,7 +3,7 @@ import { fetchMessages } from "@/fetches/fetches";
 import { useQuery } from "@tanstack/react-query";
 import { useChat } from "ai/react";
 import { Send } from "lucide-react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import MessageList from "./MessageList";
 import { Button } from "./ui/button";
 import { Textarea } from "./ui/textarea";
@@ -15,7 +15,6 @@ const ChatComponent = ({ chatId }) => {
     queryKey: ["messagesOfChat", chatId],
     queryFn: () => fetchMessages(chatId),
     onSuccess: (data) => {
-      console.log("data:", data);
       setLocalMessages(data);
     },
   });
@@ -29,9 +28,8 @@ const ChatComponent = ({ chatId }) => {
   });
 
   useEffect(() => {
-    console.log("localMessages:", localMessages);
     setLocalMessages(data);
-  }, [data, localMessages]);
+  }, [data]);
 
   useEffect(() => {
     console.log("messages:", messages);

@@ -54,8 +54,9 @@ export default async function Home() {
           </div>
 
           <p className="max-w-xl mt-1 text-lg text-slate-600">
-            Join millions of workers, researchers and professionals to instantly
-            answer questions and understand research with AI
+            Bienvenue sur TKEBOT, une application qui vous permet
+            d&apos;interagir avec vos fichiers PDF instantanément. Une solution
+            TKELEVATOR pour vous aider à gérer vos fichiers PDF.
           </p>
 
           <div className="w-[50%] mt-4">
