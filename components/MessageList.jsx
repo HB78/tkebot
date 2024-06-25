@@ -1,6 +1,7 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { Loader2 } from "lucide-react";
+export const dynamic = "force-dynamic";
 
 const MessageList = ({ messages, isLoading }) => {
   if (isLoading) {
