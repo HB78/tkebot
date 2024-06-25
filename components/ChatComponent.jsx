@@ -31,7 +31,7 @@ const ChatComponent = ({ chatId }) => {
   useEffect(() => {
     console.log("localMessages:", localMessages);
     setLocalMessages(data);
-  }, [data]);
+  }, [data, localMessages]);
 
   useEffect(() => {
     console.log("messages:", messages);
