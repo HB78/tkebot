@@ -22,6 +22,7 @@ const ChatComponent = ({ chatId }) => {
     initialMessages: data || [],
   });
 
+  console.log("data:ZUUUT", data);
   useEffect(() => {
     console.log("messages:", messages);
     const messageContainer = document.getElementById("message-container");
