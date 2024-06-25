@@ -18,13 +18,7 @@ const MessageList = ({ messages, isLoading }) => {
     <div className="flex flex-col gap-3 px-4">
       {messages.map((message) => {
         return (
-          <div
-            key={message.id}
-            className={cn("flex", {
-              "justify-end pl-10": message.role === "USER",
-              "justify-start pr-10": message.role === "SYSTEM",
-            })}
-          >
+          <div key={message.id} className="text-orange-300">
             <div
               className={cn(
                 "rounded-xl text-sm shadow-md ring-1 ring-gray-900/10 p-3 max-w-[80%]",
