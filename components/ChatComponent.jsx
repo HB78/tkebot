@@ -56,7 +56,7 @@ const ChatComponent = ({ chatId }) => {
       <MessageList
         messages={messages}
         isLoading={isPending}
-        role={message.role}
+        role={messages.role}
       />
 
       <form
