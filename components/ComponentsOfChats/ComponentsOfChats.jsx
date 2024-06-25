@@ -3,6 +3,7 @@ import { useState } from "react";
 import ChatComponent from "../ChatComponent";
 import ChatSideBar from "../ChatSideBar";
 import PDFViewer from "../PDFviewer";
+export const dynamic = "force-dynamic";
 
 export default function ComponentsOfChats({ chats, id, currentChatPDF }) {
   const [visible, setVisible] = useState(true);
