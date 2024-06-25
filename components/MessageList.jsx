@@ -1,3 +1,4 @@
+"use client";
 import { Loader2 } from "lucide-react";
 
 const MessageList = ({ messages, isLoading }) => {
@@ -13,7 +14,12 @@ const MessageList = ({ messages, isLoading }) => {
       </div>
     );
   }
-  if (!messages) return <></>;
+  if (!messages)
+    return (
+      <div>
+        <Loader2 className="w-6 h-6 animate-spin" />
+      </div>
+    );
   if (!messages || !Array.isArray(messages))
     return <>ceci n&apos;est pas un tableau</>;
 
@@ -40,8 +46,8 @@ const MessageList = ({ messages, isLoading }) => {
         } else {
           // Si jamais un autre rôle est utilisé, on peut gérer le cas ici
           return (
-            <div key={message.id} className="flex justify-end pl-10">
-              <div className="rounded-xl text-sm shadow-md ring-1 ring-gray-900/10 p-3 max-w-[80%] bg-blue-600 text-white">
+            <div key={message.id} className="flex justify-start pr-10">
+              <div className="rounded-xl text-sm shadow-md ring-1 ring-gray-900/10 p-3 max-w-[80%] bg-gray-200 text-black">
                 <p>{message.content}</p>
               </div>
             </div>

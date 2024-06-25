@@ -40,7 +40,13 @@ const ChatComponent = ({ chatId }) => {
       </div>
     );
   }
-
+  if (messages.role === "SYSTEM") {
+    console.log("messages.role:", messages.role);
+    alert("system message");
+  } else {
+    console.log("messages.role:", messages.role);
+    alert("user message");
+  }
   return (
     //ici je modifie la partie chatbot de maniere globale
     <div
