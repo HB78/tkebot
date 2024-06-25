@@ -7,7 +7,7 @@ const MessageList = ({ messages, isLoading }) => {
 
   useEffect(() => {
     setRole(messages.role);
-  }, [messages.role]);
+  }, [messages]);
 
   const isUserPosition = "flex justify-end pl-10";
   const isUserColor =
