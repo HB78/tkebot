@@ -3,6 +3,7 @@ import { PrismaClient } from "@prisma/client";
 import { getServerSession } from "next-auth/next";
 import { redirect } from "next/navigation";
 import { authOptions } from "./../../api/auth/[...nextauth]/route";
+export const dynamic = "force-dynamic";
 
 const prisma = new PrismaClient();
 

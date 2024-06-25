@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import MessageList from "./MessageList";
 import { Button } from "./ui/button";
 import { Textarea } from "./ui/textarea";
+export const dynamic = "force-dynamic";
 
 const ChatComponent = ({ chatId }) => {
   const { data, isPending } = useQuery({
