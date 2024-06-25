@@ -3,11 +3,10 @@ import { fetchMessages } from "@/fetches/fetches";
 import { cn } from "@/lib/utils";
 import { useQuery } from "@tanstack/react-query";
 import { useChat } from "ai/react";
-import { Loader2, Send } from "lucide-react";
+import { Send } from "lucide-react";
 import { useEffect } from "react";
 import { Button } from "./ui/button";
 import { Textarea } from "./ui/textarea";
-export const dynamic = "force-dynamic";
 
 const ChatComponent = ({ chatId }) => {
   const { data, isPending } = useQuery({
@@ -42,13 +41,13 @@ const ChatComponent = ({ chatId }) => {
     );
   }
 
-  if (isLoading) {
-    return (
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-        <Loader2 className="w-6 h-6 animate-spin" />
-      </div>
-    );
-  }
+  // if (isLoading) {
+  //   return (
+  //     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+  //       <Loader2 className="w-6 h-6 animate-spin" />
+  //     </div>
+  //   );
+  // }
 
   if (!messages) return <></>;
   if (!messages || !Array.isArray(messages))
