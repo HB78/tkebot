@@ -29,21 +29,21 @@ const MessageList = ({ messages, isLoading }) => {
           <div
             key={message.id}
             className={
-              message.role == "USER"
+              message.role == "user"
                 ? "flex justify-end pl-10"
                 : "flex justify-start pr-10"
             }
           >
             <div
               className={
-                message.role == "USER"
+                message.role == "user"
                   ? "rounded-xl text-sm shadow-md ring-1 ring-gray-900/10 p-3 max-w-[80%] bg-blue-600 text-white"
                   : "rounded-xl text-sm shadow-md ring-1 ring-gray-900/10 p-3 max-w-[80%] bg-gray-800 text-white"
               }
             >
               <p>{message.content}</p>
               <div className="text-xs text-blue-500 mt-1">
-                {message.role == "SYSTEM" ? "tkebot" : null}
+                {message.role == "assistant" ? "tkebot" : null}
               </div>
             </div>
           </div>
