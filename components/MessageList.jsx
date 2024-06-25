@@ -43,7 +43,7 @@ const MessageList = ({ messages, isLoading }) => {
             >
               <p>{message.content}</p>
               <div className="text-xs text-blue-500 mt-1">
-                {message.role === "USER" ? "tkebot" : null}
+                {message.role === "SYSTEM" ? "tkebot" : null}
               </div>
             </div>
           </div>
