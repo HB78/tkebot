@@ -19,8 +19,6 @@ const MessageList = ({ messages, isLoading }) => {
   }
   if (!Array.isArray(messages)) return <>ceci n&apos;est pas un tableau</>;
 
-  console.log("messages:PUTAIIIIIIIIN", messages);
-
   return (
     <div className="flex flex-col gap-3 px-4">
       {messages.map((message) => {

@@ -63,7 +63,7 @@ const ChatComponent = ({ chatId }) => {
           <Textarea
             value={input}
             onChange={handleInputChange}
-            className="relative flex-1 text-md my-auto bg-gray-800 border-none text-white lg:text-xl rounded-xl focus:ring-0 focus:border-none"
+            className="relative scrollbar-hide flex-1 text-md my-auto bg-gray-800 border-none text-white lg:text-xl rounded-xl focus:ring-0 focus:border-none"
             placeholder="Type your message..."
             rows={1}
           />
