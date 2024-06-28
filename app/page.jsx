@@ -11,14 +11,11 @@ const Home = () => {
         <BackgroundPlayerVideo />
       </div>
       <section className="content">
-        <h1 className="text-[2rem] text-center">
-          Welcome to TKE
-        </h1>
+        <h1 className="text-[2rem] text-center">Welcome to TKE</h1>
         <nav className="w-full flex flex-col gap-8 items-center pt-[2.9rem]">
           <Link href="/login" className="content_button_authButton">
             Connexion
           </Link>
-          {/* <Link to="/register" className="content_button_authButton">Inscription</Link> */}
         </nav>
       </section>
     </main>
