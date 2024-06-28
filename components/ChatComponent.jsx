@@ -59,18 +59,15 @@ const ChatComponent = ({ chatId }) => {
         onSubmit={handleSubmit}
         className="sticky bottom-0 inset-x-0 px-2 py-4 mt-9 bg-gray-950"
       >
-        <div className="flex">
+        <div className="flex gap-1">
           <Textarea
             value={input}
             onChange={handleInputChange}
-            className="relative scrollbar-hide flex-1 text-md my-auto bg-gray-800 border-none text-white lg:text-xl rounded-xl focus:ring-0 focus:border-none"
+            className="scrollbar-hide flex-1 text-md my-auto bg-gray-800 border-none text-white lg:text-xl rounded-xl focus:ring-0 focus:border-none"
             placeholder="Type your message..."
             rows={1}
           />
-          <Button
-            className="absolute right-0 top-0 bottom-0 my-auto mr-6
-           bg-white rounded-full hover:bg-blue-400"
-          >
+          <Button className="bg-white rounded-full hover:bg-blue-400">
             <Send className="h-4 w-4" />
           </Button>
         </div>
