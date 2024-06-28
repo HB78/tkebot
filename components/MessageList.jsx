@@ -40,9 +40,7 @@ const MessageList = ({ messages, isLoading }) => {
                   : "rounded-xl text-sm shadow-md ring-1 ring-gray-900/10 p-3 max-w-[80%] bg-gray-800 text-white"
               }
             >
-              <p>
-                {message.content}/{message.role}
-              </p>
+              <p>{message.content}</p>
               <div className="text-xs text-blue-500 mt-1">
                 {message.role === "SYSTEM" || message.role === "assistant"
                   ? "tkebot"
