@@ -59,7 +59,7 @@ const ChatComponent = ({ chatId }) => {
         onSubmit={handleSubmit}
         className="sticky bottom-0 inset-x-0 px-2 py-4 mt-9 bg-gray-950"
       >
-        <div className="flex gap-1">
+        <div className="flex items-center gap-1">
           <Textarea
             value={input}
             onChange={handleInputChange}
@@ -68,7 +68,7 @@ const ChatComponent = ({ chatId }) => {
             rows={1}
           />
           <Button className="bg-white rounded-full hover:bg-blue-400">
-            <Send className="h-4 w-4" />
+            <Send className="h-3 w-3" />
           </Button>
         </div>
       </form>
