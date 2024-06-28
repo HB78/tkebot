@@ -35,7 +35,7 @@ const MessageList = ({ messages, isLoading }) => {
           >
             <div
               className={
-                message.role === "USER"
+                message.role === "USER" || message.role === "user"
                   ? "rounded-xl text-sm shadow-md ring-1 ring-gray-900/10 p-3 max-w-[80%] bg-blue-600 text-white"
                   : "rounded-xl text-sm shadow-md ring-1 ring-gray-900/10 p-3 max-w-[80%] bg-gray-800 text-white"
               }
