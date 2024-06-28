@@ -12,7 +12,7 @@ const Home = () => {
       </div>
       <section className="content">
         <h1 className="text-[2rem] text-center">
-          Welcome to Thyssen Krump Elevator
+          Welcome to TKE
         </h1>
         <nav className="w-full flex flex-col gap-8 items-center pt-[2.9rem]">
           <Link href="/login" className="content_button_authButton">
