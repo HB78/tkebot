@@ -1,5 +1,5 @@
 import Providers from "@/components/Providers";
-import Favicon from "./../public/tke.jpg";
+import Favicon from "./../public/k.jpg";
 import "./globals.css";
 
 export const metadata = {
